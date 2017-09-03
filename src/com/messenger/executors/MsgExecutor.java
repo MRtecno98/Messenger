@@ -16,22 +16,21 @@ public class MsgExecutor implements CommandExecutor {
 	}
 	
 	public boolean onCommand(CommandSender sender , Command cmd , String label , String[] args) {
-		if(sender instanceof Player) {
-			Player p = (Player)sender;
-			if(label.equalsIgnoreCase("msg")) {
-				if(args.length < 2) {
-					p.sendMessage(ChatColor.RED + instance.description.getCommands().get("msg").get("tooltip").toString());
+		if(!(sender instanceof Player) return false;
+			Player player = (Player) sender;
+				if(args.length != 2) {
+					player.sendMessage(ChatColor.RED + instance.description.getCommands().get("msg").get("tooltip").toString());
 					return false;
 				}
+		   
 				if(!(instance.getServer().getPlayer(args[0]).isValid())) {
-					p.sendMessage(ChatColor.RED + "Player is not Online!");
+					player.sendMessage(ChatColor.RED + "Player is not Online!");
+					return false;
 				}
-				Player t = instance.getServer().getPlayer(args[0]);
-				t.sendMessage(ChatColor.GOLD + "[" + ChatColor.GRAY + p.getName() + ChatColor.RESET + " --> " + ChatColor.RED + "You" + ChatColor.GOLD + "] " + args[1]);
+		   
+				Player target = instance.getServer().getPlayer(args[0]);
+				target.sendMessage(ChatColor.GOLD + "[" + ChatColor.GRAY + p.getName() + ChatColor.RESET + " --> " + ChatColor.RED + "You" + ChatColor.GOLD + "] " + args[1]);
 				instance.responses.put(p, t);
 				return true;
-			}
-		}
-		return false;
 	}
 }
