@@ -1,0 +1,16 @@
+name: PrivateMessenger
+main: com.messenger.main.Messenger
+version: 1.0.0
+description: Plugin manager of private messages
+commands:
+    msg:
+      description: Send private message to a player
+      tooltip: /msg <player> <message>
+      permission: messenger.msg
+      permission-message: You don't have <permission> permission!
+    
+    r:
+      description: Send response to player
+      tooltip: /msg <message>
+      permission: messenger.r
+      permission-message: You don't have <permission> permission!
