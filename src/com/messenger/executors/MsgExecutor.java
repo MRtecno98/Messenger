@@ -18,7 +18,6 @@ public class MsgExecutor implements CommandExecutor {
 	public boolean onCommand(CommandSender sender , Command cmd , String label , String[] args) {
 		if(sender instanceof Player) {
 			Player p = (Player)sender;
-			if(label.equalsIgnoreCase("msg")) {
 				if(args.length < 2) {
 					p.sendMessage(ChatColor.RED + instance.description.getCommands().get("msg").get("tooltip").toString());
 					return false;
@@ -30,7 +29,6 @@ public class MsgExecutor implements CommandExecutor {
 				t.sendMessage(ChatColor.GOLD + "[" + ChatColor.GRAY + p.getName() + ChatColor.RESET + " --> " + ChatColor.RED + "You" + ChatColor.GOLD + "] " + args[1]);
 				instance.responses.put(p, t);
 				return true;
-			}
 		}
 		return false;
 	}

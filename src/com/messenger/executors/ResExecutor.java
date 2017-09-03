@@ -18,7 +18,6 @@ public class ResExecutor implements CommandExecutor {
 	public boolean onCommand(CommandSender sender , Command cmd , String label , String[] args) {
 		if(sender instanceof Player) {
 			Player p = (Player)sender;
-			if(label.equalsIgnoreCase("r")) {
 				if(args.length < 1) {
 					p.sendMessage(ChatColor.RED + instance.description.getCommands().get("r").get("tooltip").toString());
 					return false;
@@ -34,7 +33,6 @@ public class ResExecutor implements CommandExecutor {
 				}
 				t.sendMessage(ChatColor.GOLD + "[" + ChatColor.GRAY + p.getName() + ChatColor.RESET + " --> " + ChatColor.RED + "You" + ChatColor.GOLD + "] " + args[0]);
 				return true;
-			}
 		}
 		return false;
 	}
